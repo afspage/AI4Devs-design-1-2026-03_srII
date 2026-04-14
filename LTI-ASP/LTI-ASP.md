@@ -38,7 +38,8 @@ Las ventajas competitivas iniciales de LTI serían:
 - **Modelo de datos unificado**, que permite trazabilidad completa desde la vacante hasta la contratación.
 - **Analítica orientada a decisiones**, con métricas como time-to-hire, conversiones por etapa, cuellos de botella y desempeño de fuentes.
 
-> Referencias del mercado actual: Greenhouse destaca structured hiring y scorecards; Lever enfatiza colaboración, automatización y visibilidad del desempeño; Ashby posiciona una plataforma unificada con IA y analytics. citeturn679735search1turn679735search5turn679735search2turn679735search22turn679735search3turn679735search7turn679735search11
+
+> Referencias del mercado actual: Greenhouse, Lever y Ashby.
 
 ---
 
@@ -254,7 +255,7 @@ flowchart LR
 ## Caso de uso 3: Automatizar comunicaciones y seguimiento
 
 ### Objetivo
-Reducir tareas operativas automando comunicaciones, recordatorios y actualizaciones del pipeline.
+Reducir tareas operativas automatizando comunicaciones, recordatorios y actualizaciones del pipeline.
 
 ### Actores
 - Recruiter
@@ -666,6 +667,7 @@ La propuesta inicial presentada cubre negocio, casos de uso, datos y arquitectur
 ---
 
 ## 10. Referencias
-- Greenhouse describe su plataforma como un ATS con herramientas de IA y enfoque en structured hiring. citeturn679735search1turn679735search5
-- Lever enfatiza automatización del proceso, colaboración y visibilidad del desempeño del equipo. citeturn679735search2turn679735search22
-- Ashby destaca un enfoque all-in-one con datos unificados, IA y analítica flexible. citeturn679735search3turn679735search7turn679735search11
+
+- https://www.greenhouse.com/
+- https://www.lever.co/
+- https://www.ashbyhq.com/
