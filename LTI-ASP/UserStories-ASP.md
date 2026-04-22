@@ -1,334 +1,242 @@
-\# UserStories-ASP
+# UserStories-ASP
 
+## 1. User Stories
 
+### US-01: Crear vacante
 
-\## 1. User Stories
+**Como** recruiter  
 
+**Quiero** crear una vacante con descripción y requisitos  
 
+**Para** iniciar un proceso de selección estructurado  
 
-\### US-01: Crear vacante
+**Criterios de aceptación (BDD):**
 
-\*\*Como\*\* recruiter  
+- **Given** que el recruiter está autenticado en el sistema  
 
-\*\*Quiero\*\* crear una vacante con descripción y requisitos  
+ **When** crea una vacante con título, descripción y requisitos  
 
-\*\*Para\*\* iniciar un proceso de selección estructurado  
+ **Then** la vacante se guarda en estado "draft"
 
+- **Given** una vacante en estado draft  
 
+ **When** se asigna un hiring manager  
 
-\*\*Criterios de aceptación (BDD):\*\*
+ **Then** la vacante queda disponible para aprobación
 
+**Prioridad:** Alta  
 
+**Story Points:** 5  
 
-\- \*\*Given\*\* que el recruiter está autenticado en el sistema  
+**Nota de estimación:**  
 
-&#x20; \*\*When\*\* crea una vacante con título, descripción y requisitos  
+Aunque los tickets técnicos asociados a US-01 (T-01, T-02 y T-03) suman 10 puntos, la estimación de la User Story se mantiene en 5 porque:
 
-&#x20; \*\*Then\*\* la vacante se guarda en estado "draft"
+- Parte del trabajo puede ejecutarse en paralelo  
 
+- Existen componentes reutilizables  
 
+- La incertidumbre funcional es baja  
 
-\- \*\*Given\*\* una vacante en estado draft  
+---
 
-&#x20; \*\*When\*\* se asigna un hiring manager  
+### US-02: Publicar vacante
 
-&#x20; \*\*Then\*\* la vacante queda disponible para aprobación
+**Como** recruiter  
 
+**Quiero** publicar una vacante en distintos canales  
 
+**Para** atraer candidatos  
 
-\*\*Prioridad:\*\* Alta  
+**Criterios de aceptación (BDD):**
 
-\*\*Story Points:\*\* 5  
+- **Given** una vacante aprobada  
 
+ **When** el recruiter selecciona canales de publicación  
 
+ **Then** la vacante se publica en los canales seleccionados  
 
-\---
+- **Given** una vacante no aprobada  
 
+ **When** el recruiter intenta publicarla  
 
+ **Then** el sistema bloquea la acción  
 
-\### US-02: Publicar vacante
+**Prioridad:** Alta  
 
-\*\*Como\*\* recruiter  
+**Story Points:** 5  
 
-\*\*Quiero\*\* publicar una vacante en distintos canales  
+---
 
-\*\*Para\*\* atraer candidatos  
+### US-03: Registrar candidato
 
+**Como** recruiter  
 
+**Quiero** registrar candidatos  
 
-\*\*Criterios de aceptación (BDD):\*\*
+**Para** gestionarlos en el proceso de selección  
 
+**Criterios de aceptación (BDD):**
 
+- **Given** acceso al módulo de candidatos  
 
-\- \*\*Given\*\* una vacante aprobada  
+ **When** el recruiter ingresa datos básicos  
 
-&#x20; \*\*When\*\* el recruiter selecciona canales de publicación  
+ **Then** el sistema crea el perfil del candidato  
 
-&#x20; \*\*Then\*\* la vacante se publica en los canales seleccionados
+- **Given** un candidato existente  
 
+ **When** se adjunta un CV  
 
+ **Then** el sistema lo almacena correctamente  
 
-\- \*\*Given\*\* una vacante no aprobada  
+**Prioridad:** Alta  
 
-&#x20; \*\*When\*\* el recruiter intenta publicarla  
+**Story Points:** 5  
 
-&#x20; \*\*Then\*\* el sistema bloquea la acción
+---
 
+### US-04: Evaluar candidato
 
+**Como** interviewer  
 
-\*\*Prioridad:\*\* Alta  
+**Quiero** completar un scorecard  
 
-\*\*Story Points:\*\* 5  
+**Para** evaluar objetivamente al candidato  
 
+**Criterios de aceptación (BDD):**
 
+- **Given** una entrevista completada  
 
-\---
+ **When** el interviewer ingresa puntuaciones  
 
+ **Then** el sistema guarda el scorecard  
 
+- **Given** un scorecard completo  
 
-\### US-03: Registrar candidato
+ **When** se envía la evaluación  
 
-\*\*Como\*\* recruiter  
+ **Then** se registra la recomendación final  
 
-\*\*Quiero\*\* registrar candidatos manualmente o desde fuentes externas  
+**Prioridad:** Alta  
 
-\*\*Para\*\* gestionarlos en el proceso de selección  
+**Story Points:** 8  
 
+---
 
+### US-05: Agendar entrevista
 
-\*\*Criterios de aceptación (BDD):\*\*
+**Como** recruiter  
 
+**Quiero** agendar entrevistas  
 
+**Para** coordinar evaluaciones  
 
-\- \*\*Given\*\* que el recruiter accede al módulo de candidatos  
+**Criterios de aceptación (BDD):**
 
-&#x20; \*\*When\*\* ingresa los datos básicos del candidato  
+- **Given** un candidato en proceso  
 
-&#x20; \*\*Then\*\* el sistema crea el perfil del candidato
+ **When** se define fecha y hora  
 
+ **Then** se agenda la entrevista  
 
+- **Given** entrevistadores asignados  
 
-\- \*\*Given\*\* un candidato creado  
+ **When** se confirma la entrevista  
 
-&#x20; \*\*When\*\* se adjunta un CV  
+ **Then** el sistema envía notificaciones  
 
-&#x20; \*\*Then\*\* el sistema guarda el archivo y lo asocia al candidato
+**Prioridad:** Media  
 
+**Story Points:** 5  
 
+---
 
-\*\*Prioridad:\*\* Alta  
+### US-06: Automatizar correos
 
-\*\*Story Points:\*\* 5  
+**Como** recruiter  
 
+**Quiero** automatizar comunicaciones  
 
+**Para** ahorrar tiempo  
 
-\---
+**Criterios de aceptación (BDD):**
 
+- **Given** una regla configurada  
 
+ **When** ocurre el evento  
 
-\### US-04: Evaluar candidato
+ **Then** el sistema envía el correo automáticamente  
 
-\*\*Como\*\* interviewer  
+- **Given** correos enviados  
 
-\*\*Quiero\*\* completar un scorecard  
+ **When** el recruiter revisa historial  
 
-\*\*Para\*\* evaluar objetivamente al candidato  
+ **Then** puede ver el registro  
 
+**Prioridad:** Media  
 
+**Story Points:** 8  
 
-\*\*Criterios de aceptación (BDD):\*\*
+---
 
+### US-07: Generar resumen CV con IA
 
+**Como** recruiter  
 
-\- \*\*Given\*\* una entrevista completada  
+**Quiero** ver un resumen automático del CV  
 
-&#x20; \*\*When\*\* el interviewer ingresa puntuaciones por competencia  
+**Para** evaluar rápidamente candidatos  
 
-&#x20; \*\*Then\*\* el sistema guarda el scorecard
+**Criterios de aceptación (BDD):**
 
+- **Given** un CV cargado  
 
+ **When** el sistema lo procesa  
 
-\- \*\*Given\*\* un scorecard completo  
+ **Then** genera un resumen automático  
 
-&#x20; \*\*When\*\* el interviewer envía su evaluación  
+- **Given** un resumen generado  
 
-&#x20; \*\*Then\*\* se registra la recomendación final
+ **When** el recruiter accede  
 
+ **Then** lo visualiza  
 
+**Prioridad:** Baja  
 
-\*\*Prioridad:\*\* Alta  
+**Story Points:** 13  
 
-\*\*Story Points:\*\* 8  
+---
 
+### US-08: Visualizar pipeline
 
+**Como** recruiter  
 
-\---
+**Quiero** ver candidatos por etapa  
 
+**Para** gestionar el proceso  
 
+**Criterios de aceptación (BDD):**
 
-\### US-05: Agendar entrevista
+- **Given** una vacante activa  
 
-\*\*Como\*\* recruiter  
+ **When** se accede al pipeline  
 
-\*\*Quiero\*\* agendar entrevistas  
+ **Then** se visualizan candidatos por etapa  
 
-\*\*Para\*\* coordinar evaluaciones con el equipo  
+- **Given** un candidato  
 
+ **When** cambia de etapa  
 
+ **Then** el sistema actualiza su estado  
 
-\*\*Criterios de aceptación (BDD):\*\*
+**Prioridad:** Alta  
 
+**Story Points:** 5  
 
+---
 
-\- \*\*Given\*\* un candidato en proceso  
-
-&#x20; \*\*When\*\* el recruiter define fecha y hora  
-
-&#x20; \*\*Then\*\* se crea la entrevista en el sistema
-
-
-
-\- \*\*Given\*\* una entrevista agendada  
-
-&#x20; \*\*When\*\* se asignan entrevistadores  
-
-&#x20; \*\*Then\*\* el sistema envía notificaciones
-
-
-
-\*\*Prioridad:\*\* Media  
-
-\*\*Story Points:\*\* 5  
-
-
-
-\---
-
-
-
-\### US-06: Automatizar correos
-
-\*\*Como\*\* recruiter  
-
-\*\*Quiero\*\* automatizar comunicaciones  
-
-\*\*Para\*\* ahorrar tiempo y mejorar la experiencia del candidato  
-
-
-
-\*\*Criterios de aceptación (BDD):\*\*
-
-
-
-\- \*\*Given\*\* una regla de automatización configurada  
-
-&#x20; \*\*When\*\* ocurre el evento definido  
-
-&#x20; \*\*Then\*\* el sistema envía el correo automáticamente
-
-
-
-\- \*\*Given\*\* un correo enviado automáticamente  
-
-&#x20; \*\*When\*\* el recruiter revisa el historial  
-
-&#x20; \*\*Then\*\* puede ver el registro del envío
-
-
-
-\*\*Prioridad:\*\* Media  
-
-\*\*Story Points:\*\* 8  
-
-
-
-\---
-
-
-
-\### US-07: Generar resumen CV con IA
-
-\*\*Como\*\* recruiter  
-
-\*\*Quiero\*\* ver un resumen automático del CV  
-
-\*\*Para\*\* evaluar más rápido a los candidatos  
-
-
-
-\*\*Criterios de aceptación (BDD):\*\*
-
-
-
-\- \*\*Given\*\* un CV cargado  
-
-&#x20; \*\*When\*\* el sistema procesa el documento  
-
-&#x20; \*\*Then\*\* se genera un resumen automático
-
-
-
-\- \*\*Given\*\* un resumen generado  
-
-&#x20; \*\*When\*\* el recruiter accede al perfil  
-
-&#x20; \*\*Then\*\* puede visualizar el resumen
-
-
-
-\*\*Prioridad:\*\* Baja  
-
-\*\*Story Points:\*\* 13  
-
-
-
-\---
-
-
-
-\### US-08: Visualizar pipeline
-
-\*\*Como\*\* recruiter  
-
-\*\*Quiero\*\* ver candidatos por etapa  
-
-\*\*Para\*\* gestionar el proceso de selección  
-
-
-
-\*\*Criterios de aceptación (BDD):\*\*
-
-
-
-\- \*\*Given\*\* una vacante activa  
-
-&#x20; \*\*When\*\* el recruiter accede al pipeline  
-
-&#x20; \*\*Then\*\* visualiza candidatos por etapa
-
-
-
-\- \*\*Given\*\* un candidato en el pipeline  
-
-&#x20; \*\*When\*\* se mueve a otra etapa  
-
-&#x20; \*\*Then\*\* el sistema actualiza su estado
-
-
-
-\*\*Prioridad:\*\* Alta  
-
-\*\*Story Points:\*\* 5  
-
-
-
-\---
-
-
-
-\## 2. Backlog de Producto
-
-
+## 2. Backlog de Producto
 
 | ID    | User Story                     | Prioridad | Story Points |
 
@@ -350,147 +258,128 @@
 
 | US-07 | IA resumen CV                | Baja     | 13          |
 
+### Estrategia de priorización
 
+Se priorizó usando enfoque MVP:
 
-\### Estrategia de priorización
+- Primero funcionalidades core  
 
+- Luego gestión y colaboración  
 
+- Finalmente IA  
 
-Se priorizó utilizando enfoque MVP:
+---
 
+## 3. Prompts utilizados y conclusiones
 
+### Prompt 1
 
-\- Primero funcionalidades core del ATS
+Generar user stories con BDD
 
-\- Luego gestión y colaboración
+### Prompt 2
 
-\- Finalmente automatización e IA
+Generar backlog priorizado
 
+### Conclusión
 
+Los prompts permitieron:
 
-\---
+- Generar backlog accionable  
 
+- Definir criterios claros  
 
+- Alinear negocio y tecnología  
 
-\## 3. Prompts utilizados y conclusiones
+---
 
+## 4. Tickets técnicos
 
+### US-01: Crear vacante
 
-\### Prompt 1
+#### T-01: API backend (POST /jobs)
 
-"Dado el diseño de un ATS, genera user stories con criterios de aceptación en formato Given/When/Then."
+- Endpoint `POST /jobs`
+- Validación de datos
+- Persistencia en base de datos
 
+**Requisitos no funcionales:**
 
+- **RBAC:**
+  - Solo usuarios con rol `recruiter` pueden invocar `POST /jobs`
+  - La validación de permisos debe realizarse en backend
 
-\### Resultado
+- **Auditoría y trazabilidad:**
+  - Registrar `user_id` del creador
+  - Registrar `timestamp` de creación
+  - Registrar cambios relevantes asociados a la creación
+  - Incluir `correlation_id` para trazabilidad extremo a extremo
 
-Se obtuvieron historias bien estructuradas con criterios claros y testeables.
+- **Eventos:**
+  - Emitir evento `JobCreated`
+  - Esquema mínimo del evento: `job_id`, `company_id`, `created_at`
+  - Publicar el evento en el bus de eventos para consumo por otros subsistemas  
 
+---
 
+#### T-02: UI formulario
 
-\---
+- Formulario de creación  
 
+- Validaciones frontend  
 
+- Botón guardar  
 
-\### Prompt 2
+---
 
-"Genera un backlog priorizado con enfoque MVP para un sistema ATS."
+#### T-03: Base de datos
 
+Tabla: JobPosition  
 
+Campos:
 
-\### Resultado
+- id: UUID  
 
-Se logró una priorización coherente basada en valor de negocio.
+- company_id: UUID (FK)  
 
+- hiring_manager_id: UUID (FK)  
 
+- recruiter_id: UUID (FK)  
 
-\---
+- title: string  
 
+- department: string  
 
+- location: string  
 
-\### Conclusión
+- employment_type: enum  
 
+- status: enum (default: draft)  
 
+- description: text  
 
-Los prompts fueron efectivos porque:
+- requirements: text  
 
+- created_at: timestamp (default current)  
 
+- published_at: timestamp (nullable)  
 
-\- Traducen el diseño en tareas accionables
+---
 
-\- Permiten generar criterios claros para QA
+## 5. Estimación
 
-\- Alinean desarrollo con objetivos del negocio
+| Ticket | Descripción     | Story Points |
 
+|--------|----------------|-------------|
 
+| T-01   | API backend    | 3           |
 
-\---
+| T-02   | UI formulario  | 5           |
 
+| T-03   | Base de datos  | 2           |
 
+**Total:** 10 puntos  
 
-\## 4. Tickets técnicos
+### Metodología
 
-
-
-\### US-01: Crear vacante
-
-
-
-\#### T-01: API backend
-
-\- Endpoint POST /jobs
-
-\- Validación de datos
-
-\- Persistencia en base de datos
-
-
-
-\#### T-02: UI formulario
-
-\- Formulario de creación
-
-\- Validaciones frontend
-
-\- Botón guardar
-
-
-
-\#### T-03: Base de datos
-
-\- Tabla JobPosition
-
-\- Campos: id, title, description, status
-
-
-
-\---
-
-
-
-\## 5. Estimación
-
-
-
-| Ticket | Descripción           | Story Points |
-
-|--------|----------------------|-------------|
-
-| T-01   | API backend          | 3           |
-
-| T-02   | UI formulario        | 5           |
-
-| T-03   | Base de datos        | 2           |
-
-
-
-\*\*Total:\*\* 10 puntos
-
-
-
-\### Metodología utilizada
-
-
-
-Se utilizó escala Fibonacci (1,2,3,5,8,13) para reflejar complejidad e incertidumbre.
+Escala Fibonacci (1,2,3,5,8,13)
 
